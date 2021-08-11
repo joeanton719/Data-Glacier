@@ -9,20 +9,20 @@ app = Flask(__name__)
 @app.route('/predict/',methods=['GET', 'POST'])
 def predict():
  
-    model = pickle.load(open('catboost.pkl', 'rb'))
-    age = request.args.get('X1')
-    salary = request.args.get('X6')
+    model = pickle.load(open('lr_model.pkl', 'rb'))
+    age = request.args.get('Age')
+    salary = request.args.get('EstimatedSalary')
     
     df = pd.DataFrame({'Age' : [age], 'EstimatedSalary' : [salary]})
     
     predicition = model.predict(df)
     
     if predicition == 0:
-        output = "Customer is not Happy =("
+        output = "Customer will not purchase =("
     else:
-        output = "Customer is Happy =)"
+        output = "Customer will Purchase =)"
 
-    return jsonify({"Prediction" : str(output)})
+    return jsonify({"Prediction" : output})
 
 
 if __name__ == "__main__":
