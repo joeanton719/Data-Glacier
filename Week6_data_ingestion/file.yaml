@@ -1,0 +1,23 @@
+file_type: csv
+dataset_name: ChessGames
+file_name: chess_games
+table_name: edsurv
+inbound_delimiter: ","
+outbound_delimiter: "|"
+skip_leading_rows: 1
+columns: 
+    - Event
+    - White
+    - Black
+    - Result
+    - UTCDate
+    - UTCTime
+    - WhiteElo
+    - BlackElo
+    - WhiteRatingDiff
+    - BlackRatingDiff
+    - ECO
+    - Opening
+    - TimeControl
+    - Termination
+    - AN
